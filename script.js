@@ -55,7 +55,7 @@ if (contactForm) {
 
     // Dr. Amit Saxena's WhatsApp number
     // Country code 91 + mobile number
-    const whatsappNumber = "919210745836";
+    const whatsappNumber = "919810745836";
 
     // Prepare WhatsApp message
     const whatsappMessage =
