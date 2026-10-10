@@ -1,12 +1,16 @@
+
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
 
+// Mobile navigation menu
 menuToggle.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("open");
+
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.textContent = isOpen ? "✕" : "☰";
 });
 
+// Close menu after clicking a navigation link
 nav.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("open");
@@ -15,11 +19,12 @@ nav.querySelectorAll("a").forEach((link) => {
   });
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+// Automatically update copyright year
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
+// Send contact form details to WhatsApp
 document.getElementById("contactForm").addEventListener("submit", (event) => {
-
-document.getElementById("contactForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
   const name = document.getElementById("visitorName").value.trim();
@@ -36,9 +41,10 @@ document.getElementById("contactForm").addEventListener("submit", function (even
     "Message:\n" + message;
 
   const whatsappURL =
-    "https://wa.me/" + whatsappNumber +
-    "?text=" + encodeURIComponent(whatsappMessage);
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(whatsappMessage);
 
-  window.open(whatsappURL, "_blank");
+  window.open(whatsappURL, "_blank", "noopener,noreferrer");
 });
-
