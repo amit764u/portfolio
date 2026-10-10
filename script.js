@@ -18,19 +18,27 @@ nav.querySelectorAll("a").forEach((link) => {
 document.getElementById("year").textContent = new Date().getFullYear();
 
 document.getElementById("contactForm").addEventListener("submit", (event) => {
+
+document.getElementById("contactForm").addEventListener("submit", function (event) {
   event.preventDefault();
+
   const name = document.getElementById("visitorName").value.trim();
   const email = document.getElementById("visitorEmail").value.trim();
   const message = document.getElementById("visitorMessage").value.trim();
 
-  // Replace this placeholder with a verified professional email before publishing.
-  const recipient = "YOUR-PROFESSIONAL-EMAIL@example.com";
-  const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
-  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-  if (recipient.includes("YOUR-PROFESSIONAL-EMAIL")) {
-    document.getElementById("formNote").textContent =
-      "Form checked. Before publishing, replace the placeholder email in script.js with your verified professional email address.";
-    return;
-  }
-  window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+  const whatsappNumber = "919210745836";
+
+  const whatsappMessage =
+    "Hello Dr. Amit Kumar Saxena,\n\n" +
+    "New enquiry from your portfolio website:\n\n" +
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n\n" +
+    "Message:\n" + message;
+
+  const whatsappURL =
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(whatsappMessage);
+
+  window.open(whatsappURL, "_blank");
 });
+
